@@ -153,7 +153,7 @@ export function safeSvg(s: WidgetSnapshot, w: number, h: number, t: Theme): stri
     `<text x="${pad}" y="${labelY}" ${FONT} font-size="12" fill="${c.muted}">safe to spend today</text>` +
     bar(pad, barY, bw, 6, s.cycle, c.green, c.track) +
     `<circle cx="${dotX}" cy="${barY + 3}" r="7" fill="${c.green}" stroke="rgba(255,255,255,${t === 'light' ? 0.85 : 0.35})" stroke-width="3"/>` +
-    `<text x="${pad}" y="${paceY}" ${FONT} font-size="11.5" font-weight="600" fill="${s.pace.includes('over') ? c.red : c.green}">${esc(truncate(s.pace, bw, 11.5))}</text>`,
+    `<text x="${pad}" y="${paceY}" ${FONT} font-size="11.5" font-weight="600" fill="${s.pace.includes('over') ? c.red : c.green}">${esc(truncate(fitPace(s.pace, bw, 11.5), bw, 11.5))}</text>`,
     g.defs);
 }
 
@@ -186,6 +186,11 @@ export function pocketsSvg(s: WidgetSnapshot, w: number, h: number, t: Theme): s
       bar(pad + chip + 10, y + 18, inner - chip - 10, 5, p.used, over ? c.red : p.fg, c.track);
   });
   return frame(w, h, body, g.defs);
+}
+
+/** "Rs. 2,500 ahead of pace" → "Rs. 2,500 ahead" when space is tight, rather than cutting mid-word. */
+function fitPace(pace: string, maxWidth: number, size: number): string {
+  return textWidth(pace, size, false) <= maxWidth ? pace : pace.replace(/ of pace$/, '');
 }
 
 function truncate(s: string, maxWidth: number, size: number): string {

@@ -1,8 +1,31 @@
-# Pace: a calmer way to money
+<p align="center">
+  <img src="docs/logo.png" alt="Pace logo" width="112" />
+</p>
+
+<h1 align="center">Pace</h1>
+
+<p align="center"><strong>A calmer way to money.</strong><br/>
+Budget in pockets, know what's safe to spend today, and grow towards your goals.</p>
+
+<p align="center">
+  <img alt="Expo SDK 57" src="https://img.shields.io/badge/Expo-SDK%2057-000020?logo=expo&logoColor=white" />
+  <img alt="React Native" src="https://img.shields.io/badge/React%20Native-0.86-61DAFB?logo=react&logoColor=black" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white" />
+  <img alt="Supabase" src="https://img.shields.io/badge/Supabase-Postgres%20%2B%20Auth-3FCF8E?logo=supabase&logoColor=white" />
+  <img alt="Platforms" src="https://img.shields.io/badge/platforms-iOS%20%7C%20Android-1F9D4C" />
+</p>
+
+<p align="center">
+  <img src="docs/demo.gif" alt="Pace app walkthrough: sign-in, onboarding, Today, Pockets, a pocket, Goals, a goal, Progress and Add Expense" width="300" />
+</p>
 
 Pace is a budgeting app for iOS and Android, built for Pakistan. You plan your month in **pockets**, see one number each morning (**safe to spend today**), save towards **goals**, and track **bills**, **taxes** and **spending trends**. Transactions come from bank SMS, bank statements (Excel or CSV), or quick manual entry. Data syncs to your account and works offline.
 
 Built with **Expo (React Native, SDK 57)**, **Expo Router**, **TypeScript** and **Supabase**.
+
+<p align="center">
+  <img src="docs/screens.png" alt="Today, Pockets, Goal and Progress screens" width="860" />
+</p>
 
 ---
 
@@ -183,6 +206,12 @@ React Native has no WebCrypto, so `src/lib/crypto-polyfill.ts` provides SHA-256 
 - **Categorising:** `src/lib/categorize.ts` uses learned merchant rules first, then built-in keywords. Taxes, zakat and bank fees go to Essentials. Generic labels like "POS" are never learned.
 
 ## Home-screen widgets
+
+<p align="center">
+  <img src="docs/widgets.png" alt="Pace pocket and safe-to-spend widgets with a glass look over a wallpaper" width="720" />
+  <br/>
+  <img src="docs/widgets-wide.png" alt="Pace Pockets widget in light and dark mode" width="720" />
+</p>
 
 | Widget | Sizes | Shows | Tap opens |
 | --- | --- | --- | --- |
