@@ -1,0 +1,201 @@
+{
+  "expo": {
+    "name": "Pace",
+    "slug": "pace",
+    "scheme": "pace",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.pace.money",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "usesAppleSignIn": true
+    },
+    "android": {
+      "package": "com.pace.money",
+      "adaptiveIcon": {
+        "backgroundColor": "#1F9D4C",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-sharing",
+        {
+          "android": {
+            "enabled": true,
+            "singleShareMimeTypes": [
+              "text/plain",
+              "text/csv",
+              "text/comma-separated-values",
+              "application/vnd.ms-excel",
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            ]
+          },
+          "ios": {
+            "enabled": false
+          }
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#1F9D4C"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 120,
+          "resizeMode": "contain",
+          "backgroundColor": "#E9EFE8"
+        }
+      ],
+      "expo-web-browser",
+      "expo-apple-authentication",
+      [
+        "expo-widgets",
+        {
+          "bundleIdentifier": "com.pace.money.widgets",
+          "groupIdentifier": "group.com.pace.money",
+          "widgets": [
+            {
+              "name": "PocketWidget",
+              "displayName": "Pocket",
+              "description": "See what’s left in a pocket this month.",
+              "ios": {
+                "supportedFamilies": [
+                  "systemSmall"
+                ],
+                "configuration": {
+                  "title": "Choose a pocket",
+                  "description": "Pick which pocket this widget shows.",
+                  "parameters": {
+                    "pocket": {
+                      "title": "Pocket",
+                      "type": "enum",
+                      "default": "food",
+                      "values": [
+                        {
+                          "name": "Food & Dining",
+                          "value": "food"
+                        },
+                        {
+                          "name": "Essentials",
+                          "value": "essentials"
+                        },
+                        {
+                          "name": "Transport",
+                          "value": "transport"
+                        },
+                        {
+                          "name": "Shopping",
+                          "value": "shopping"
+                        },
+                        {
+                          "name": "Fun",
+                          "value": "fun"
+                        },
+                        {
+                          "name": "Travel",
+                          "value": "travel"
+                        },
+                        {
+                          "name": "Safe to spend today",
+                          "value": "safe"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "PocketsWidget",
+              "displayName": "Pockets",
+              "description": "Safe to spend today and your pockets at a glance.",
+              "ios": {
+                "supportedFamilies": [
+                  "systemMedium",
+                  "systemLarge"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      [
+        "react-native-android-widget",
+        {
+          "widgets": [
+            {
+              "name": "PocketWidget",
+              "label": "Pace · Pocket",
+              "description": "What’s left in one pocket this month",
+              "minWidth": "110dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 2,
+              "targetCellHeight": 2,
+              "resizeMode": "horizontal|vertical",
+              "widgetFeatures": "reconfigurable",
+              "updatePeriodMillis": 1800000
+            },
+            {
+              "name": "PocketsWidget",
+              "label": "Pace · Pockets",
+              "description": "Safe to spend and your pockets at a glance",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "resizeMode": "horizontal|vertical",
+              "updatePeriodMillis": 1800000
+            }
+          ]
+        }
+      ],
+      "./plugins/with-workmanager-fix"
+    ],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "ExpoWidgetsTarget",
+                  "bundleIdentifier": "com.pace.money.widgets",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.pace.money"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "6b3f0633-96e8-42d6-9f31-210969b63565"
+      }
+    },
+    "owner": "taimoor5600"
+  }
+}
